@@ -1,4 +1,4 @@
-package com.ngr.appnews
+package com.ngr.appnews.utils
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi

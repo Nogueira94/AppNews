@@ -2,6 +2,7 @@ package com.ngr.appnews.di
 
 import com.ngr.appnews.BuildConfig
 import com.ngr.appnews.viewmodel.ListArticlesViewModel
+import com.ngr.appnews.viewmodel.MainActivityViewModel
 import com.ngr.network.config.NetworkClient
 import com.ngr.network.config.NetworkClientFactory
 import org.koin.androidx.viewmodel.dsl.viewModelOf
@@ -14,5 +15,6 @@ val appModule = module {
     }
 
     viewModelOf(::ListArticlesViewModel)
+    viewModelOf(::MainActivityViewModel)
 
 }

@@ -1,37 +1,42 @@
 package com.ngr.appnews
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Surface
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.fragment.app.FragmentActivity
 import com.ngr.appnews.navigation.NavGraph
 import com.ngr.designsystem.theme.AppNewsTheme
 import com.ngr.appnews.navigation.Route
-import com.ngr.security.biometrics.BiometricAuth
-import org.koin.android.ext.android.inject
+import com.ngr.appnews.viewmodel.MainActivityViewModel
+import com.ngr.appnews.viewmodel.MainEvent
 
-class MainActivity : FragmentActivity() {
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-    private val biometricAuth: BiometricAuth by inject()
+class MainActivity() : FragmentActivity() {
+
+    private val viewModel : MainActivityViewModel by viewModel()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        biometricAuth.canAccess(this) { canAccess ->
-            if (canAccess) {
-                setContent {
-                    AppNewsTheme {
-                        Surface(
-                            modifier = Modifier.fillMaxSize(), color = Color.Black
-                        ) {
-                            NavGraph(startDestination = Route.ArticlesNavigation.route)
+        setContent {
+            AppNewsTheme {
+                Surface(
+                    modifier = Modifier.fillMaxSize(), color = Color.Black
+                ) {
+                    val viewState by viewModel.viewState.collectAsState()
+
+                    viewState.requireBiometric.let {
+                        when (it) {
+                            true -> NavGraph(startDestination = Route.ArticlesNavigation.route)
+                            false -> finish()
+                            null -> viewModel.dispatch(MainEvent.Auth(this))
                         }
                     }
                 }
-            } else {
-                finish()
             }
         }
     }

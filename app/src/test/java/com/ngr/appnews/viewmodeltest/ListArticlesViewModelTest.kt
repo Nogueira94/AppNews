@@ -1,10 +1,10 @@
-package com.ngr.appnews
+package com.ngr.appnews.viewmodeltest
 
+import com.ngr.appnews.utils.MainDispatcherRule
 import com.ngr.appnews.viewmodel.ListArticleEvent
 import com.ngr.appnews.viewmodel.ListArticleState
 import com.ngr.appnews.viewmodel.ListArticlesViewModel
 import com.ngr.domain.usecase.ArticlesListUseCase
-import io.mockk.MockKAnnotations
 import io.mockk.clearAllMocks
 import io.mockk.coEvery
 import io.mockk.coVerify
