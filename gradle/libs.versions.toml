@@ -1,0 +1,89 @@
+[versions]
+
+## Config Versions
+compileSdk = "34"
+minSdk = "28"
+targetSdk = "34"
+versionCode = "1"
+versionName = "1.0"
+
+## Libs Versions
+composeBom = "2023.10.01"
+coreKtx = "1.12.0"
+lifecycleRuntimeKtx = "2.6.2"
+activityCompose = "1.8.2"
+composeUi = "1.5.4"
+composeUiTooling = "1.5.4"
+composeUiGraphics = "1.5.4"
+composeUiToolingPreview = "1.5.4"
+composeMaterial3 = "1.2.0-beta01"
+lifecycleViewModelCompose = "2.6.2"
+materialIconsExtended = "1.5.4"
+accompanistSwiperefresh = "0.25.1"
+retrofit = "2.9.0"
+okhttp = "5.0.0-alpha.3"
+okhttpLoggingInterceptor = "5.0.0-alpha.3"
+koinCompose = "3.5.3"
+koinCore = "3.5.3"
+coilCompose = "2.5.0"
+junit = "4.13.2"
+androidxTestExtJunit = "1.1.5"
+androidGradlePlugin = "8.2.1"
+kotlin = "1.9.0"
+kotlinSerializationConverter = "1.0.0"
+appCompat = "1.6.1"
+material = "1.11.0"
+espresso-core = "3.5.1"
+kotlinxSerializationJson = "1.6.2"
+mockk = "1.13.9"
+coroutinesTest = "1.8.0-RC2"
+
+[libraries]
+
+## Android Libraries
+androidxCoreKtx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidxLifecycleRuntimeKtx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
+androidxActivityCompose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
+androidxAppCompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appCompat" }
+androidMaterial = { group = "com.google.android.material", name = "material", version.ref = "material" }
+
+## Compose Libraries
+androidxComposeBom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
+androidxComposeUi = { group = "androidx.compose.ui", name = "ui", version.ref = "composeUi" }
+androidxComposeUiTooling = { group = "androidx.compose.ui", name = "ui-tooling", version.ref = "composeUiTooling" }
+androidxComposeUiGraphics = { group = "androidx.compose.ui", name = "ui-graphics", version.ref = "composeUiGraphics" }
+androidxComposeUiToolingPreview = { group = "androidx.compose.ui", name = "ui-tooling-preview", version.ref = "composeUiToolingPreview" }
+androidxComposeMaterial3 = { group = "androidx.compose.material3", name = "material3-android", version.ref = "composeMaterial3" }
+androidxLifecycleViewModelCompose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "lifecycleViewModelCompose" }
+androidxComposeMaterialIconsExtended = { group = "androidx.compose.material", name = "material-icons-extended", version.ref = "materialIconsExtended" }
+androidxComposeFoundation = { group = "androidx.compose.foundation", name = "foundation" }
+
+## Utils
+androidxAccompanistSwiperefresh = { group = "com.google.accompanist", name = "accompanist-swiperefresh", version.ref = "accompanistSwiperefresh" }
+kotlinxSerializationJson = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
+
+## Network Libraries
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
+okhttpLoggingInterceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttpLoggingInterceptor" }
+
+## Third-party Libraries
+koinCore = { group = "io.insert-koin", name = "koin-core", version.ref = "koinCore" }
+koinCompose = { group = "io.insert-koin", name = "koin-androidx-compose", version.ref = "koinCompose" }
+coilCompose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coilCompose" }
+kotlinxSerializationConverter = { group = "com.jakewharton.retrofit" , name = "retrofit2-kotlinx-serialization-converter", version.ref = "kotlinSerializationConverter" }
+
+## Test Libraries
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidxTestExtJunit = { group = "androidx.test.ext", name = "junit", version.ref = "androidxTestExtJunit" }
+espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
+coroutinesTest = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutinesTest" }
+mockk = { group = "io.mockk" , name = "mockk", version.ref = "mockk" }
+
+[plugins]
+
+androidApplication = { id = "com.android.application", version.ref = "androidGradlePlugin" }
+androidLibrary = { id = "com.android.library", version.ref = "androidGradlePlugin" }
+jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlinParcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
+kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }

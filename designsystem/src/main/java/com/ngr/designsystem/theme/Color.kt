@@ -1,4 +1,4 @@
-package com.ngr.appnews.ui.theme
+package com.ngr.designsystem.theme
 
 import androidx.compose.ui.graphics.Color
 
