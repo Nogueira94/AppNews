@@ -2,8 +2,10 @@ package com.ngr.data.model
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
+import kotlinx.serialization.Serializable
 
 @Parcelize
+@Serializable
 data class Article(
     var source: Source,
     var author: String,

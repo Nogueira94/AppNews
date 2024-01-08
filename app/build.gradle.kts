@@ -2,8 +2,9 @@ import java.io.FileInputStream
 import java.util.Properties
 
 plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
+    alias(libs.plugins.androidApplication)
+    alias(libs.plugins.jetbrainsKotlinAndroid)
+    alias(libs.plugins.kotlinSerialization)
 }
 
 android {
@@ -80,6 +81,10 @@ dependencies {
     implementation(libs.androidxComposeUiGraphics)
     implementation(libs.androidxComposeUiToolingPreview)
     implementation(libs.androidxComposeMaterial3)
+
+    implementation(libs.kotlinxSerializationConverter)
+    implementation(libs.kotlinxSerializationJson)
+    implementation(libs.androidxNavigationCompose)
 
     implementation(libs.retrofit)
     testImplementation(libs.mockk)

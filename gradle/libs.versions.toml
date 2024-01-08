@@ -37,6 +37,7 @@ espresso-core = "3.5.1"
 kotlinxSerializationJson = "1.6.2"
 mockk = "1.13.9"
 coroutinesTest = "1.8.0-RC2"
+navigationCompose = "2.7.6"
 
 [libraries]
 
@@ -61,6 +62,7 @@ androidxComposeFoundation = { group = "androidx.compose.foundation", name = "fou
 ## Utils
 androidxAccompanistSwiperefresh = { group = "com.google.accompanist", name = "accompanist-swiperefresh", version.ref = "accompanistSwiperefresh" }
 kotlinxSerializationJson = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
+androidxNavigationCompose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
 
 ## Network Libraries
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }

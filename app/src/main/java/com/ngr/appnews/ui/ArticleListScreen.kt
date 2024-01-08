@@ -1,5 +1,6 @@
 package com.ngr.appnews.ui
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.absolutePadding
@@ -24,6 +25,7 @@ import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun ArticleListScreen(
+    navigateToArticleDetail: (Article) -> Unit,
     viewModel: ListArticlesViewModel = koinViewModel()
 ) {
 
@@ -37,7 +39,8 @@ fun ArticleListScreen(
         ArticleListScreen(
             articles = viewState.articles,
             swipeRefreshState = swipeRefreshState,
-            dispatch = { viewModel.dispatch(it) }
+            dispatch = { viewModel.dispatch(it) },
+            onArticleClick = { navigateToArticleDetail.invoke(it) }
         )
     }
 
@@ -52,6 +55,7 @@ private fun ArticleListScreen(
     articles: List<Article>,
     swipeRefreshState: SwipeRefreshState,
     dispatch: (ListArticleEvent) -> Unit,
+    onArticleClick: (Article) -> Unit,
 ) {
     Column(
         modifier = Modifier
@@ -66,6 +70,7 @@ private fun ArticleListScreen(
                 items(articles.size) { i ->
                     val article = articles[i]
                     TopHeadlinesItem(
+                        modifier = Modifier.clickable { onArticleClick(article) },
                         article = article
                     )
                 }
@@ -111,6 +116,7 @@ private fun ArticleListScreenPreview() {
             ),
             SwipeRefreshState(true),
             {},
+            {}
         )
     }
 }
