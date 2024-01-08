@@ -38,6 +38,7 @@ kotlinxSerializationJson = "1.6.2"
 mockk = "1.13.9"
 coroutinesTest = "1.8.0-RC2"
 navigationCompose = "2.7.6"
+biometric = "1.1.0"
 
 [libraries]
 
@@ -47,6 +48,7 @@ androidxLifecycleRuntimeKtx = { group = "androidx.lifecycle", name = "lifecycle-
 androidxActivityCompose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
 androidxAppCompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appCompat" }
 androidMaterial = { group = "com.google.android.material", name = "material", version.ref = "material" }
+androidBiometric = { group = "androidx.biometric", name = "biometric", version.ref = "biometric" }
 
 ## Compose Libraries
 androidxComposeBom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }

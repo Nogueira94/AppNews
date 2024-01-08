@@ -80,6 +80,7 @@ dependencies {
     implementation(projects.data)
     implementation(projects.designsystem)
     implementation(projects.domain)
+    implementation(projects.security)
 
     implementation(libs.koinCompose)
 

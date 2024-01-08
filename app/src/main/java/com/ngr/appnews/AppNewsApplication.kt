@@ -11,6 +11,7 @@ import coil.util.DebugLogger
 import com.ngr.appnews.di.appModule
 import com.ngr.domain.di.domainModule
 import com.ngr.network.di.topHeadlinesApiModule
+import com.ngr.security.di.securityModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -25,6 +26,7 @@ class AppNewsApplication : Application(), ImageLoaderFactory {
         startKoin {
             androidContext(this@AppNewsApplication)
             modules(
+                securityModule,
                 topHeadlinesApiModule,
                 domainModule,
                 appModule
@@ -54,5 +56,9 @@ class AppNewsApplication : Application(), ImageLoaderFactory {
             .respectCacheHeaders(false)
             .build()
 
+    }
+
+    companion object{
+        var ALREADY_AUTH = false
     }
 }
