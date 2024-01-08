@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsKotlinAndroid)
     alias(libs.plugins.kotlinParcelize)
+    alias(libs.plugins.kotlinSerialization)
 }
 
 android {
@@ -36,4 +37,5 @@ android {
 
 dependencies {
     implementation(libs.androidxCoreKtx)
+    implementation(libs.kotlinxSerializationJson)
 }
