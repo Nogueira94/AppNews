@@ -66,21 +66,4 @@ class MainActivityViewModelTest {
         Assert.assertEquals(expected, viewModel.viewState.value)
     }
 
-//    @Test
-//    fun `viewstate test`() = runTest {
-//        // Arrange
-//        val biometricAuth = mockk<BiometricAuth>()
-//        coEvery { biometricAuth.canAccess(any()) } returns true
-//
-//        val viewModel = MainActivityViewModel(biometricAuth)
-//        val flow = flow { emit(MainState(true)) }.flowOn(this.coroutineContext)
-//
-//        // Act
-//        viewModel.viewState.collect(flow)
-//        viewModel.dispatch(MainEvent.Auth(mockk(relaxed = true)))
-//
-//        // Assert
-//        coVerify { biometricAuth.canAccess(any()) }
-//        verify { observer.onChanged(MainState(true)) }
-//    }
 }
