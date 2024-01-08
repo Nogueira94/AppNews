@@ -29,7 +29,7 @@ class TopHeadlinesDataSourceTest {
     fun setUp() {
         service = mockk<TopHeadlinesService>()
         topHeadlinesMapper = mockk<TopHeadlinesMapper>(relaxed = true)
-        dataSource = TopHeadlinesDataSource(service, topHeadlinesMapper)
+        dataSource = TopHeadlinesDataSource(service, topHeadlinesMapper, "")
     }
 
     @After
@@ -42,7 +42,7 @@ class TopHeadlinesDataSourceTest {
         val mockedDto = topHeadlinesDTO
         val mockedDomain = topHeadlines
 
-        coEvery { service.getTopHeadlines() } returns mockedDto
+        coEvery { service.getTopHeadlines("") } returns mockedDto
         coEvery { topHeadlinesMapper.mapToDomainModel(mockedDto) } returns mockedDomain
 
         val result = dataSource.getTopHeadlines()
@@ -55,7 +55,7 @@ class TopHeadlinesDataSourceTest {
     @Test
     fun `should return failure response when service call throws an exception`() = runTest {
         val mockException = Throwable("Mock error")
-        coEvery { service.getTopHeadlines() } throws mockException
+        coEvery { service.getTopHeadlines("") } throws mockException
 
         val result = dataSource.getTopHeadlines()
 
