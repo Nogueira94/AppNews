@@ -11,6 +11,7 @@ import retrofit2.Retrofit
 
 val topHeadlinesApiModule = module {
 
+
     single { SourceMapper() }
     single { ArticleMapper(get()) }
     single { TopHeadlinesMapper(get()) }
@@ -20,9 +21,11 @@ val topHeadlinesApiModule = module {
         client.client().create(TopHeadlinesService::class.java)
     }
     single<TopHeadlinesDataSource>{
+        val client: NetworkClient<Retrofit> = get()
         TopHeadlinesDataSource(
             service = get(),
-            topHeadlinesMapper = get()
+            topHeadlinesMapper = get(),
+            sourceParam = client.sourceParam()
         )
     }
 }

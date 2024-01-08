@@ -10,7 +10,7 @@ import retrofit2.Retrofit
 
 val appModule = module {
     factory<NetworkClient<Retrofit>> {
-        NetworkClientFactory().client(BuildConfig.API_KEY)
+        NetworkClientFactory().client(BuildConfig.API_KEY, BuildConfig.SOURCE_PARAM)
     }
 
     viewModelOf(::ListArticlesViewModel)

@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit
 private const val NEWS_API_URL = "https://newsapi.org/"
 private const val API_VERSION = "v2/"
 
-class RetrofitClient(apiKey: String) : NetworkClient<Retrofit> {
+class RetrofitClient(apiKey: String, private val sourceParam: String) : NetworkClient<Retrofit> {
     private val client = Retrofit.Builder()
         .baseUrl(NEWS_API_URL + API_VERSION)
         .client(getOkHttpClient(apiKey))
@@ -21,6 +21,8 @@ class RetrofitClient(apiKey: String) : NetworkClient<Retrofit> {
         .build()
 
     override fun client(): Retrofit = client
+
+    override fun sourceParam(): String = sourceParam
 
     private fun getOkHttpClient(apiKey: String): OkHttpClient {
         val loggingInterceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
