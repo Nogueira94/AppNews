@@ -1,4 +1,4 @@
-package com.ngr.appnews
+package com.ngr.data
 
 import org.junit.Test
 
