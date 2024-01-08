@@ -37,6 +37,22 @@ android {
             )
         }
     }
+    flavorDimensions.add("source")
+    productFlavors{
+        create("bbc"){
+            dimension = "source"
+            applicationIdSuffix = ".bbc"
+            versionNameSuffix = "-bbc"
+            buildConfigField("String","SOURCE_PARAM","\"bbc-news\"")
+        }
+        create("abc"){
+            dimension = "source"
+            applicationIdSuffix = ".abc"
+            versionNameSuffix = "-abc"
+            buildConfigField("String","SOURCE_PARAM","\"abc-news\"")
+        }
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8

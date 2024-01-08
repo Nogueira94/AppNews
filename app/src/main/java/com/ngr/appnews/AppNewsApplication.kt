@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.appcompat.content.res.AppCompatResources
 import coil.ImageLoader
 import coil.ImageLoaderFactory
+import coil.disk.DiskCache
 import coil.memory.MemoryCache
 import coil.request.CachePolicy
 import coil.util.DebugLogger
@@ -36,14 +37,22 @@ class AppNewsApplication : Application(), ImageLoaderFactory {
             .memoryCachePolicy(CachePolicy.ENABLED)
             .memoryCache {
                 MemoryCache.Builder(this)
-                    .maxSizeBytes(0.1.toInt())
+                    .maxSizePercent(0.1)
                     .strongReferencesEnabled(true)
                     .build()
             }
-            .diskCachePolicy(CachePolicy.DISABLED)
+            .diskCachePolicy(CachePolicy.ENABLED)
+            .diskCache {
+                DiskCache.Builder()
+                    .maxSizePercent(0.03)
+                    .directory(cacheDir)
+                    .build()
+            }
             .logger(DebugLogger())
             .placeholder(AppCompatResources.getDrawable(this, com.ngr.designsystem.R.drawable.loading_image_placeholder))
             .error(AppCompatResources.getDrawable(this, com.ngr.designsystem.R.drawable.no_image_placeholder))
+            .respectCacheHeaders(false)
             .build()
+
     }
 }

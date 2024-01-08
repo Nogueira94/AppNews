@@ -7,6 +7,6 @@ import retrofit2.http.Query
 interface TopHeadlinesService {
     @GET("top-headlines")
     suspend fun getTopHeadlines(
-        @Query("country") country: String = "us"
+        @Query("sources") source: String
     ): TopHeadlinesDTO
 }

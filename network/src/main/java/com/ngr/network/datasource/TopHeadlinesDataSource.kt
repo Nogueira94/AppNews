@@ -7,9 +7,10 @@ import com.ngr.network.service.TopHeadlinesService
 
 class TopHeadlinesDataSource(
     private val service: TopHeadlinesService,
-    private val topHeadlinesMapper: TopHeadlinesMapper
+    private val topHeadlinesMapper: TopHeadlinesMapper,
+    private val sourceParam: String,
 ) : DataSource() {
     suspend fun getTopHeadlines(): DataResponse<TopHeadlines> {
-        return apiCall({ service.getTopHeadlines() }, topHeadlinesMapper)
+        return apiCall({ service.getTopHeadlines(sourceParam) }, topHeadlinesMapper)
     }
 }
