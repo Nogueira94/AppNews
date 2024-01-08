@@ -7,7 +7,6 @@ import com.ngr.appnews.viewmodel.MainState
 import com.ngr.security.biometrics.BiometricAuth
 import io.mockk.clearAllMocks
 import io.mockk.coEvery
-import io.mockk.coVerify
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.advanceUntilIdle

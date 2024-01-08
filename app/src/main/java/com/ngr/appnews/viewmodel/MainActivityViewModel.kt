@@ -3,7 +3,6 @@ package com.ngr.appnews.viewmodel
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.ngr.data.model.Article
 import com.ngr.security.biometrics.BiometricAuth
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
